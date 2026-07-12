@@ -9,6 +9,17 @@ fork entries are assembled from fragments in `changelog.d/` with
 
 <!-- scriv-insert-here -->
 
+<a id='changelog-v7.3.1'></a>
+## v7.3.1 - 2026-07-12
+
+### Changed
+
+- `Data.Unit.unit` is pinned to the shared foreign singleton
+  (`@inline unit never`). The value is a table constructor (`{}`), so the
+  former `always` pragma duplicated the allocation at every use site; `never`
+  keeps one shared table, matching the foreign-table sharing the compiler now
+  performs by default (purescript-lua/purescript-lua#176).
+
 ## v7.3.0 - 2026-06-15
 
 ### Fixed
